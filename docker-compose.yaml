@@ -18,3 +18,8 @@ services:
     build:
       context: ./webapp
     command: ['celery', '--workdir=./src', '-A', 'project', 'worker']
+
+  postgresql-db:
+    restart: always
+    image: postgres
+    env_file: ./postgresql-db/.pg-env
